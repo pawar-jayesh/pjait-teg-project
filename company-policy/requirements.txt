@@ -1,0 +1,15 @@
+python-dotenv
+langgraph
+langchain
+langchain_community
+langchain_huggingface
+langchain_openai
+numpy
+pandas
+typing_extensions
+ipython
+ipykernel
+wikipedia 
+arxiv
+langchain-experimental
+langsmith
