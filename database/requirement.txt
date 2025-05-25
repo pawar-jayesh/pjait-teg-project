@@ -1,0 +1,9 @@
+python-dotenv
+typing-extensions
+pydantic
+SQLAlchemy>=1.4
+langchain-core
+langchain-openai
+langgraph
+flask
+flask_cors
