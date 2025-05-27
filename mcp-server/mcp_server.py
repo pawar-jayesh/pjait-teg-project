@@ -59,11 +59,11 @@ def callTool(tool: str, args: dict):
         print(f"Searching Tavily for {args['query']}")
         return Success(tavily_search(args['query']))
     if tool == "get_weather":
-        return Success(get_weather(args['query']))
+        return Success(get_weather(args['city']))
     return Error(1, f"Unknown tool: {tool}")
 
 
 
 if __name__ == "__main__":
-    print("MCP server running on http://localhost:4000")
-    serve(port=4000)
+    print("MCP server running on http://localhost:5000")
+    serve(port=5000)

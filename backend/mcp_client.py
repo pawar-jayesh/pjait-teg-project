@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=os.getenv("OPEN_AI_KEY"))
+mcp_server = os.getenv("MCP_URL")
 
 OPENAI_FUNCTIONS = [
     {
@@ -46,7 +47,7 @@ OPENAI_FUNCTIONS = [
     }
 ]
 
-async def chat_with_tools(user_message):
+def chat_with_tools(user_message):
     print(f"> User: {user_message}")
 
     resp = client.chat.completions.create(
@@ -66,7 +67,7 @@ async def chat_with_tools(user_message):
         fn_args = json.loads(msg.function_call.arguments)
         print(f"> Tool requested: {fn_name} with {fn_args}")
 
-        mcp_response = requests.post("http://localhost:4000", json={
+        mcp_response = requests.post(mcp_server, json={
             "jsonrpc": "2.0",
             "method": "callTool",
             "params": {
@@ -100,11 +101,13 @@ async def chat_with_tools(user_message):
         )
         print("> Final answer:")
         print(followup.choices[0].message.content)
+        return followup.choices[0].message.content
 
     else:
         print("> Model reply (no tool call):")
         print(msg.content)
+        return msg.content
 
-if __name__ == "__main__":
-    import asyncio
-    asyncio.run(chat_with_tools("What's a cucumber?"))
+# if __name__ == "__main__":
+#     import asyncio
+#     asyncio.run(chat_with_tools("What's a cucumber?"))

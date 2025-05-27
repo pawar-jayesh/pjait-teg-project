@@ -64,6 +64,9 @@ def check_if_mcp(query) -> bool:
     if found_keywords or found_wether_keywords or found_distance_keywords:
         return True
     
+    if "how" in query and "far" in query:
+        return True
+    
     return False
 
 
@@ -80,7 +83,7 @@ def check_if_cp(query):
     
     if "code" in query and "dress" in query:
         return True
-
+    
     if ("work" in query and "from" in query and "home" in query) or "wfh" in query:
         return True
 
@@ -107,7 +110,7 @@ def agent_decider(query):
 
     DB Service contains User, Team, Leaves, Office Location tables.
     Company Policy Service has data related to the company like code of conduct, dress code, company policy, company events, company holidays and so on.
-    MCP Service has following tools web searching, wikipidea searching and weather forecast.
+    MCP Service is used for company trips related questions eg:'how far is warsaw from Gdansk', 'what can i do in Gdansk after office hours', etc and it has following tools web searching via tavily, wikipidea searching and weather forecast.
     If you think, the user question is not related to the following tools eg: 'sup', 'what are you doing?' and so on reply 'unrelated'
     """
     

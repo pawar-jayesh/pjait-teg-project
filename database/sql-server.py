@@ -20,14 +20,14 @@ def checkemail():
 
 @app.route('/askdb', methods=['POST'])
 def askdb():
-    data = request.json  # Expecting JSON: {"a": 5, "b": 3}
-    a = data.get('email')
-    b = data.get('user_question')
+    data = request.json
+    email = data.get('email')
+    user_question = data.get('user_question')
 
-    if a is None or b is None:
-        return jsonify({"error": "Missing input values"}), 400
+    if email is None or user_question is None:
+        return jsonify({"response": "Missing input values"}), 400
 
-    result = askDbQuestion(a, b)
+    result = askDbQuestion(email, user_question)
     return jsonify({"response": result})
 
 if __name__ == '__main__':
