@@ -101,7 +101,7 @@ Respond with only "relevant" or "not_relevant".
         ]
     )
     llm = ChatOpenAI(model_name="gpt-4o-mini",
-    openai_api_key=os.environ['OPENAI_API_KEY_TEG_07'],
+    openai_api_key=os.environ['OPENAI_API_KEY'],
     temperature=0
     )
     structured_llm = llm.with_structured_output(CheckRelevance)
@@ -136,7 +136,7 @@ For example, alias 'Location.office_name' as 'office_name', 'Location.city' as '
         ]
     )
     llm = ChatOpenAI(model_name="gpt-4o-mini",
-    openai_api_key=os.environ['OPENAI_API_KEY_TEG_07'],
+    openai_api_key=os.environ['OPENAI_API_KEY'],
     temperature=0
     )
     structured_llm = llm.with_structured_output(ConvertToSQL)
@@ -331,7 +331,7 @@ Formulate a clear and understandable answer to the original question in a single
     
 
     llm = ChatOpenAI(model_name="gpt-4o-mini",
-    openai_api_key=os.environ['OPENAI_API_KEY_TEG_07'],
+    openai_api_key=os.environ['OPENAI_API_KEY'],
     temperature=0
     )
     human_response = generate_prompt | llm | StrOutputParser()
@@ -358,7 +358,7 @@ def regenerate_query(state: AgentState):
         ]
     )
     llm = ChatOpenAI(model_name="gpt-4o-mini",
-    openai_api_key=os.environ['OPENAI_API_KEY_TEG_07'],
+    openai_api_key=os.environ['OPENAI_API_KEY'],
     temperature=0
     )
     structured_llm = llm.with_structured_output(RewrittenQuestion)
@@ -381,7 +381,7 @@ def generate_funny_response(state: AgentState):
         ]
     )
     llm = ChatOpenAI(model_name="gpt-4o-mini",
-    openai_api_key=os.environ['OPENAI_API_KEY_TEG_07'],
+    openai_api_key=os.environ['OPENAI_API_KEY'],
     temperature=0
     )
     funny_response = funny_prompt | llm | StrOutputParser()
