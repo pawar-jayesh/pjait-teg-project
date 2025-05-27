@@ -494,4 +494,4 @@ def checkEmail(email) -> bool:
         session.close()
 
 # print(checkEmail("chaNg@example.com"))
-print(askDbQuestion("chang@example.com", "How many paid leaves do I have left? my id is 10"))
+# print(askDbQuestion("chang@example.com", "How many paid leaves do I have left? my id is 10"))

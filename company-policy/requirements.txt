@@ -13,3 +13,8 @@ wikipedia
 arxiv
 langchain-experimental
 langsmith
+flask
+flask_cors
+pypdf
+langchain-community
+faiss-cpu
